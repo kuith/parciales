@@ -27,7 +27,7 @@ const pesoParcialOk = (pesoTotalActual, pesoNuevoParcial) => {
 }
 
 const actualizarNota = (parcial, nota) => {
-	
+	//cambio para el git
 	console.log("Por actualizarnota del datos")
 }
 

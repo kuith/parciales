@@ -17,6 +17,11 @@ const removeParcial = id => {
 
 const getParciales = () => [...parciales];
 
+const getParcial = id => {
+	let parcial = parciales.filter((parcial) => parcial.id === id);
+	return parcial
+}
+
 const getTotalPeso = par => {
 	let total = par.reduce((acumulador, actual) => Number(acumulador) + Number(actual.peso), 0);
 	return total;
@@ -26,15 +31,20 @@ const pesoParcialOk = (pesoTotalActual, pesoNuevoParcial) => {
 	return ((Number(pesoTotalActual) + Number(pesoNuevoParcial)) > 100);
 }
 
-const actualizarNota = (parcial, nota) => {
+const actualizarNota = (id, nota) => {
 	//cambio para el git
-	console.log("Por actualizarnota del datos")
+	let parcialCambiar = getParcial(id);
+	[...parciales, parcialCambiar.nota = nota];
+	console.log("Por actualizarnota del datos");
+	console.log(parcialCambiar);
+
 }
 
 export const dataStorage = {
     addParcial,
     removeParcial,
-    getParciales,
+	getParciales,
+	getParcial,
     getTotalPeso,
     actualizarNota,
 };

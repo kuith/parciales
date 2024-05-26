@@ -23,8 +23,11 @@ function App() {
     reloadParciales();
   };
 
-  const onAplicarHandler = () => {
-    console.log("Paso por onAplicar")
+  const onAplicarHandler = (id) => {
+    console.log(parciales);
+    dataStorage.actualizarNota(id);
+    reloadParciales();
+    console.log(parciales)
   }
 
   return (

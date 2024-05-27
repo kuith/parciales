@@ -32,12 +32,11 @@ const pesoParcialOk = (pesoTotalActual, pesoNuevoParcial) => {
 }
 
 const actualizarNota = (id, nota) => {
-	//cambio para el git
 	let parcialCambiar = getParcial(id);
+	console.log("id parcial para cambiar: " + id);
+	console.log("Nota para cambiar " + nota);
 	[...parciales, parcialCambiar.nota = nota];
-	console.log("Por actualizarnota del datos");
-	console.log(parcialCambiar);
-
+	console.log("Por actualizar nota del datos");
 }
 
 export const dataStorage = {

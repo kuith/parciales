@@ -1,8 +1,8 @@
 export class Parcial {
-    constructor({ nombre, peso }) {
+    constructor({ nombre, peso, nota }) {
         this.nombre = nombre;
         this.peso = peso;
-        this.nota = 0;
+        this.nota = nota;
         this.id = Date.now();
     }
 }

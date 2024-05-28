@@ -19,7 +19,7 @@ const getParciales = () => [...parciales];
 
 const getParcial = id => {
 	let parcial = parciales.filter((parcial) => parcial.id === id);
-	return parcial
+		return parcial
 }
 
 const getTotalPeso = par => {
@@ -31,19 +31,27 @@ const pesoParcialOk = (pesoTotalActual, pesoNuevoParcial) => {
 	return ((Number(pesoTotalActual) + Number(pesoNuevoParcial)) > 100);
 }
 
-const actualizarNota = (id, nota) => {
-	let parcialCambiar = getParcial(id);
-	console.log("id parcial para cambiar: " + id);
-	console.log("Nota para cambiar " + nota);
-	[...parciales, parcialCambiar.nota = nota];
-	console.log("Por actualizar nota del datos");
+const getNotaParcial = parcial => {
+	return parcial.nota;
 }
+
+const setNotaParcial = (parcial, nuevaNota) => {
+	parcial.nota = nuevaNota;
+}
+
+const actualizarNota = (id, nuevaNota) => {
+	let parcialCambiar = getParcial(id);
+	setNotaParcial(parcialCambiar[0], nuevaNota);
+}
+
+const calcularNotaFinal = () =>{}
 
 export const dataStorage = {
     addParcial,
     removeParcial,
-	getParciales,
-	getParcial,
+    getParciales,
+    getParcial,
     getTotalPeso,
     actualizarNota,
+    calcularNotaFinal,
 };

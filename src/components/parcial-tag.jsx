@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from "react";
 
-const Parcial = ({ id, nombre, peso, onEliminar, onAplicar }) => {
+const ParcialTag = ({ id, nombre, peso, onEliminar, onAplicar }) => {
 
     const [nota, setNota] = useState();
 
@@ -11,20 +11,22 @@ const Parcial = ({ id, nombre, peso, onEliminar, onAplicar }) => {
     return (
         <>
             <h3>
-                {nombre} - {peso} %
+                Nombre: {nombre} - Peso: {peso} %
             </h3>
-            <label>
-                Nota
-                <input
-                    type="number"
-                    placeholder="Nota"
-                    onChange={handleChange}
-                ></input>
-            </label>
+            Nota
+            <input
+                type="number"
+                placeholder="Nota"
+                onChange={handleChange}
+            ></input>
+
             <button onClick={() => onEliminar(id)}>Eliminar</button>
             <button onClick={() => onAplicar(id, nota)}>Aplicar</button>
+            <h3>
+                Nota Ponderada: {/* {notaPonderada} */}
+            </h3>
         </>
     );
 };
 
-export default Parcial;
+export default ParcialTag;

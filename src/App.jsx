@@ -24,10 +24,8 @@ function App() {
   };
 
   const onAplicarHandler = (id, nota) => {
-    console.log(parciales);
     dataStorage.actualizarNota(id, nota);
     reloadParciales();
-    console.log(parciales)
   }
 
   return (
@@ -43,7 +41,7 @@ function App() {
           </div>
 
           <div>
-              <h3>Nota final</h3>
+              <h3>Nota final:</h3>
           </div>
       </>
   );

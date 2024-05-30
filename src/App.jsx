@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { dataStorage } from './data-storage/datos.js';
 import FormularioParcial from './components/formulario-parcial';
@@ -28,21 +28,23 @@ function App() {
     reloadParciales();
   }
 
+  const notaFinal = dataStorage.getNotaFinal(parciales);
+
   return (
       <>
-          <FormularioParcial onSendData={sendDataHandler} />
+        <FormularioParcial onSendData={sendDataHandler} />
 
-          <div id="contenedorParciales">
-              <Parciales
-                  parciales={parciales}
-                  onEliminarParcial={eliminarParcialHandler}
-                  onAplicar={onAplicarHandler}
-              />
-          </div>
+        <div id="contenedorParciales">
+          <Parciales
+            parciales={parciales}
+            onEliminarParcial={eliminarParcialHandler}
+            onAplicar={onAplicarHandler}
+          />
+        </div>
 
-          <div>
-              <h3>Nota final:</h3>
-          </div>
+        <div>
+          <h3>Nota final: {notaFinal}</h3>
+        </div>
       </>
   );
 

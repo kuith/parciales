@@ -35,23 +35,56 @@ const getNotaParcial = parcial => {
 	return parcial.nota;
 }
 
+const getPesoParcial = id => {
+	let peso = getParcial(id)[0].peso;
+	return peso;
+}
+
+const getNotaPonderada = id => {
+	let notaPonderada = getParcial(id)[0].notaPonderada;
+	return notaPonderada;
+}
+
 const setNotaParcial = (parcial, nuevaNota) => {
 	parcial.nota = nuevaNota;
 }
 
+const setNotaPonderada = (parcial, nuevaNotaPonderada) => {
+    parcial.notaPonderada = nuevaNotaPonderada;
+};
+
 const actualizarNota = (id, nuevaNota) => {
 	let parcialCambiar = getParcial(id);
 	setNotaParcial(parcialCambiar[0], nuevaNota);
+	//calcularNotaPonderada(id);
+	setNotaPonderada(parcialCambiar[0], calcularNotaPonderada(id));
+	console.log("Parcial tras los cambios: ", parcialCambiar[0]);
+	//getNotaFinal(parciales);
+	//console.log("Nota final: ", getNotaFinal(parciales));
 }
 
-const calcularNotaFinal = () =>{}
+const calcularNotaPonderada = (id) => {
+	let parcial = getParcial(id);
+	let notaPonderada = (parcial[0].nota * parcial[0].peso)/100;
+	return notaPonderada;
+}
+
+const getNotaFinal = (parciales) => {
+    let total = parciales.reduce(
+        (acumulador, actual) => Number(acumulador) + Number(actual.notaPonderada),0);
+    return total;
+};
+
+
 
 export const dataStorage = {
     addParcial,
     removeParcial,
     getParciales,
     getParcial,
-    getTotalPeso,
+	getTotalPeso,
+	getNotaPonderada,
     actualizarNota,
-    calcularNotaFinal,
+    getNotaFinal,
+    calcularNotaPonderada,
 };

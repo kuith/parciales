@@ -6,7 +6,8 @@ const FormularioParcial = ({ onSendData }) => {
         nombre: "",
         peso: "",
         id: "",
-        nota:0
+        nota: 0,
+        notaPonderada: 0
     });
 
     function handleNameChange(e) {

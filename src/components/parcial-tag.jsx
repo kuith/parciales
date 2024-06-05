@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 
 const ParcialTag = ({ id, nombre, peso, notaPonderada, onEliminar, onAplicar }) => {
 
@@ -10,18 +10,20 @@ const ParcialTag = ({ id, nombre, peso, notaPonderada, onEliminar, onAplicar }) 
      }
     return (
         <>
-            <h3>
-                Nombre: {nombre} - Peso: {peso} %
-            </h3>
-            Nota
-            <input
-                type="number"
-                placeholder="Nota"
-                onChange={handleChange}
-            ></input>
-            <button onClick={() => onEliminar(id)}>Eliminar</button>
-            <button onClick={() => onAplicar(id, nota)}>Aplicar</button>
-            <h3>Nota Ponderada: {notaPonderada}</h3>
+            <div className="formularioParciales contenedorParcial">
+                <h3>
+                    Nombre: {nombre} - Peso: {peso} %
+                </h3>
+                Nota
+                <input
+                    type="number"
+                    placeholder="Nota"
+                    onChange={handleChange}
+                ></input>
+                <button onClick={() => onEliminar(id)}>Eliminar</button>
+                <button onClick={() => onAplicar(id, nota)}>Aplicar</button>
+                <h3>Nota Ponderada: {notaPonderada}</h3>
+            </div>
         </>
     );
 };

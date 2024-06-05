@@ -30,22 +30,38 @@ const FormularioParcial = ({ onSendData }) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input
-                name="nombre"
-                type="text"
-                placeholder="Nombre"
-                onChange={handleNameChange}
-            ></input>
-            <input
-                name="peso"
-                type="number"
-                placeholder="Peso"
-                onChange={handlePesoChange}
-            ></input>
-            <input type="hidden" name="idParcial"></input>
-            <input type="submit" value="enviar" />
-        </form>
+        <>
+            <div className="formularioParciales">
+                <h3>Creacion de parciales</h3>
+                <form
+                    onSubmit={handleSubmit}
+                    className="contenedorCrearParcial"
+                >
+                    <div className="imputFormulario">
+                        <input
+                            name="nombre"
+                            type="text"
+                            placeholder="Nombre"
+                            onChange={handleNameChange}
+                        ></input>
+                    </div>
+                    <div className="imputFormulario">
+                        <input
+                            name="peso"
+                            type="number"
+                            placeholder="Peso"
+                            onChange={handlePesoChange}
+                        ></input>
+                    </div>
+                    <input type="hidden" name="idParcial"></input>
+                    <input
+                        className="btn primary"
+                        type="submit"
+                        value="Crear Parcial"
+                    />
+                </form>
+            </div>
+        </>
     );
 };
 

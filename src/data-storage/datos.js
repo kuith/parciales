@@ -55,12 +55,20 @@ const setNotaPonderada = (parcial, nuevaNotaPonderada) => {
 
 const actualizarNota = (id, nuevaNota) => {
 	let parcialCambiar = getParcial(id);
-	setNotaParcial(parcialCambiar[0], nuevaNota);
-	//calcularNotaPonderada(id);
-	setNotaPonderada(parcialCambiar[0], calcularNotaPonderada(id));
-	console.log("Parcial tras los cambios: ", parcialCambiar[0]);
-	//getNotaFinal(parciales);
-	//console.log("Nota final: ", getNotaFinal(parciales));
+	if (comprobarNotaValida(nuevaNota)) {
+        setNotaParcial(parcialCambiar[0], nuevaNota);
+        setNotaPonderada(parcialCambiar[0], calcularNotaPonderada(id));
+    } else {
+        alert("La nota debe estar entre 0 y 10.");
+    }
+}
+
+const comprobarNotaValida = nota => {
+	if (nota >= 0 && nota <= 10) {
+		return true
+	}
+	return false
+	
 }
 
 const calcularNotaPonderada = (id) => {

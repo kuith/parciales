@@ -31,23 +31,26 @@ function App() {
   const notaFinal = dataStorage.getNotaFinal(parciales);
 
   return (
-    <>
-      <div className="contenedor">
-        <FormularioParcial onSendData={sendDataHandler} />
-      
-        <div id="contenedorParciales">
-          <Parciales
-              parciales={parciales}
-              onEliminarParcial={eliminarParcialHandler}
-              onAplicar={onAplicarHandler}
-          />
-        </div>
+      <>
+          <div className="contenedor">
+              <div className="contenedorGenerar">
+                  <div className="generador">
+                      <FormularioParcial onSendData={sendDataHandler} />
+                  </div>
+                  <div className="imputFormulario labelCreacion">
+                      Nota final: {notaFinal}
+                  </div>
+              </div>
 
-        <div>
-          <h3>Nota final: {notaFinal}</h3>
-        </div>
-      </div>
-    </>
+              <div id="contenedorParciales">
+                  <Parciales
+                      parciales={parciales}
+                      onEliminarParcial={eliminarParcialHandler}
+                      onAplicar={onAplicarHandler}
+                  />
+              </div>
+          </div>
+      </>
   );
 
 }

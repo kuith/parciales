@@ -10,19 +10,27 @@ const ParcialTag = ({ id, nombre, peso, notaPonderada, onEliminar, onAplicar }) 
      }
     return (
         <>
-            <div className="formularioParciales contenedorParcial">
-                <h3>
-                    Nombre: {nombre} - Peso: {peso} %
-                </h3>
-                Nota
+            <div className=" contenedorParcial">
+                <div className="notaFinal">
+                    Nombre: <span className="negrita">{nombre}</span> - Peso:{" "}
+                    <span className="negrita">{peso}</span> %
+                </div>
                 <input
+                    className="inputNota"
                     type="number"
                     placeholder="Nota"
                     onChange={handleChange}
                 ></input>
-                <button onClick={() => onEliminar(id)}>Eliminar</button>
-                <button onClick={() => onAplicar(id, nota)}>Aplicar</button>
-                <h3>Nota Ponderada: {notaPonderada}</h3>
+                <button onClick={() => onEliminar(id)} className="btn primary">
+                    Eliminar
+                </button>
+                <button
+                    onClick={() => onAplicar(id, nota)}
+                    className="btn primary"
+                >
+                    Aplicar
+                </button>
+                <div className="notaFinal">Nota Ponderada: {notaPonderada}</div>
             </div>
         </>
     );

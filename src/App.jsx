@@ -38,7 +38,7 @@ function App() {
                       <FormularioParcial onSendData={sendDataHandler} />
                   </div>
                   <div className="imputFormulario labelCreacion">
-                      Nota final: {notaFinal}
+                      Nota final: <span className='notaFinalPonderada'>{notaFinal}</span>
                   </div>
               </div>
 

@@ -41,20 +41,25 @@
 }
 .notaFinal{
     width: 50%;
-    font-size:x-large;
 }
 
 .contenedorParcial{
     border: 1px solid #000;
     margin-top: 5px;
     margin-bottom: 5px;
+    padding-left: 5px;
+    background-color: #e7f0e1;
 }
 .inputNota{
     color: brown;
     font-weight: bold;
     margin-right: 5px;
 }
+
+.notaFinalPonderada{
+    font-weight: 500;
+}
     
 .negrita{
-    font-weight:bold;
+    font-weight:600;
 }
